@@ -12,7 +12,7 @@ begin
   begin
     WriteLn(IntToStr(I));
     Source := TStringList.Create;
-    Source.LoadFromFile(Format('Test%d.json', [I]));
+    Source.LoadFromFile(Format('Test%.2d.json', [I]));
     ClearJsonParser(JsonParser);
     ParseJson(JsonParser, Source.Text);
     Source.Free;
@@ -20,7 +20,7 @@ begin
       WriteLn(JsonParser.Output.Errors[J]);
     Lines := TStringList.Create;
     PrintJsonParserOutput(JsonParser.Output, Lines);
-    Lines.SaveToFile(Format('Test%d.txt', [I]));
+    Lines.SaveToFile(Format('Test%.2d.txt', [I]));
     Lines.Free;
   end;
 end.
