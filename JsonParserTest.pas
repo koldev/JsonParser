@@ -1,4 +1,4 @@
-// WARNING - This code assumes you have access to TStringList, WriteLn, IntToStr and Format from PascalScript!
+// WARNING - This code assumes you have access to TStringList, WriteLn, IntToStr, Length and Format from PascalScript
 
 {$INCLUDE JsonParser.pas}
 
