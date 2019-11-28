@@ -151,6 +151,7 @@ begin
           else
             Break;
           end;
+          Result := Result + SpecChar;
         end;
       end
       else 
