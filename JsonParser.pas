@@ -286,6 +286,8 @@ end;
 function Value(var JsonParser: TJsonParser): TJsonValue;
 var
   N: Integer;
+  A: TJsonArray;
+  O: TJsonObject;
 begin
   Result.Kind := JVKUnknown;
   Result.Index := -1;
@@ -319,7 +321,8 @@ begin
     begin
       N := Length(JsonParser.Output.Arrays);
       SetLength(JsonParser.Output.Arrays, N + 1);
-      JsonParser.Output.Arrays[N] := Array_(JsonParser, @Value);
+      A := Array_(JsonParser, @Value);
+      JsonParser.Output.Arrays[N] := A;
       Result.Kind := JVKArray;
       Result.Index := N;
     end;
@@ -327,7 +330,8 @@ begin
     begin
       N := Length(JsonParser.Output.Objects);
       SetLength(JsonParser.Output.Objects, N + 1);
-      JsonParser.Output.Objects[N] := Object_(JsonParser, @Value);
+      O := Object_(JsonParser, @Value);
+      JsonParser.Output.Objects[N] := O;
       Result.Kind := JVKObject;
       Result.Index := N;
     end;
